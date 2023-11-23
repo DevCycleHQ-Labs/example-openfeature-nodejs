@@ -297,38 +297,38 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@devcycle/bucketing-assembly-script@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@devcycle/bucketing-assembly-script/-/bucketing-assembly-script-1.10.0.tgz#e50f409932c93896c933c3fcba5c2e39dce54955"
-  integrity sha512-uAfQqWwPRoZyd1bRAZj2A/dmz6x3jh3F3T1Iii8e8Pk14Z7+PqZWRWA2T7gfLj6ONsgJdzeSeodnreX0vL266w==
+"@devcycle/bucketing-assembly-script@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@devcycle/bucketing-assembly-script/-/bucketing-assembly-script-1.11.0.tgz#1a4f9804ada17b8064b9f343360c670d3e811c8a"
+  integrity sha512-rKMMDumNiONdFjK5lU0z1+ArchgRuHZpgKunEJ60LClh9UTAloYANb26U6sfp5xg/YNrUqtIyu+i+a0qUfJ2aA==
   dependencies:
     protobufjs "^7.2.5"
 
-"@devcycle/js-cloud-server-sdk@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@devcycle/js-cloud-server-sdk/-/js-cloud-server-sdk-1.2.0.tgz#20e352445ef6c137bad3a571a152f090abe1673e"
-  integrity sha512-QH2AjLmPgJ3yp9orzu/Sxj1UHB3SIxij7LyydDQOIGQb3O2VDzXnTmeEl5pEW/mQAllb2CMW8wgEt3tOOMSPCg==
+"@devcycle/js-cloud-server-sdk@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@devcycle/js-cloud-server-sdk/-/js-cloud-server-sdk-1.3.0.tgz#8b4c71757e1db571113459bb8402413dc26c9e1b"
+  integrity sha512-QuAFaj3OALDCutpPAd7wsjsCkRTA1/cCPeuHA0BDxfrU/pLkp+zWT3bTWm4XFnJMIn8cTJpIhrMfKE9NUQKu0Q==
   dependencies:
-    "@devcycle/types" "^1.3.0"
+    "@devcycle/types" "^1.4.0"
     cross-fetch "^3.1.8"
     fetch-retry "^5.0.3"
     lodash "^4.17.21"
 
-"@devcycle/nodejs-server-sdk@^1.17.0":
-  version "1.17.0"
-  resolved "https://registry.yarnpkg.com/@devcycle/nodejs-server-sdk/-/nodejs-server-sdk-1.17.0.tgz#16a3119c05d8cf0783893c90f6bfe1ff7ab796fe"
-  integrity sha512-Z0vz8siQTZxIu9aTJTsMK8YIwkwDzpbRYugMLtUkOiQ8EbmIPVvkJJG+oLrGXb8PCSwNMJv84vmH7d3jj8pcXw==
+"@devcycle/nodejs-server-sdk@^1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@devcycle/nodejs-server-sdk/-/nodejs-server-sdk-1.18.0.tgz#78efa64965a1b1780b467f1f6bf37f22a3a3a6ff"
+  integrity sha512-o7rxj0XeTe/lODG5O8hok81aWc+Y4+E+omw6096xzhV8/DsPBqdtVdyw4TkxaaRwCEX0aNQPC5n7uan6CwqYPg==
   dependencies:
-    "@devcycle/bucketing-assembly-script" "^1.10.0"
-    "@devcycle/js-cloud-server-sdk" "^1.2.0"
-    "@devcycle/types" "^1.3.0"
+    "@devcycle/bucketing-assembly-script" "^1.11.0"
+    "@devcycle/js-cloud-server-sdk" "^1.3.0"
+    "@devcycle/types" "^1.4.0"
     cross-fetch "^3.1.8"
     fetch-retry "^5.0.3"
 
-"@devcycle/types@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@devcycle/types/-/types-1.3.0.tgz#2fe8a39ab6a43559d12eb00bd632d551fe2d465e"
-  integrity sha512-kKNgTbTpWGT4ROncJUsw16YCSk3TTy5MhcPKVDe7EgIHK3JfVibL5ETouAqsj467/xQs235W/TGJ5uryi7kRVw==
+"@devcycle/types@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@devcycle/types/-/types-1.4.0.tgz#08d953794bd5a7ed035556c4c8f57b9b608a7a19"
+  integrity sha512-4b3sqn7UFAV1/LsU42TZCzLUpKDChW39CE1PgCaLonM944ho/ILwk3FHehk287PugIMm7mZLW2N1/QG0wukK9w==
   dependencies:
     "@nestjs/class-validator" "^0.13.4"
     class-transformer "0.5.1"
