@@ -18,8 +18,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-          cache: 'yarn'
+          cache: 'npm'
       - name: Install dependencies
-        run: yarn --immutable
+        run: npm install --immutable
       - name: Test Project
-        run: yarn test
+        run: npm run test

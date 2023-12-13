@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Set Git author
         shell: bash
@@ -27,7 +27,7 @@ jobs:
         run: echo "BRANCH_NAME=update-dvc-sdk" >> $GITHUB_ENV
 
       - name: Update @devcycle/nodejs-server-sdk to latest
-        run: yarn add @devcycle/nodejs-server-sdk@latest
+        run: npm install @devcycle/nodejs-server-sdk@latest
 
       - name: Check for changes to package.json
         run: echo "IS_UPDATED=$(git diff --name-only origin/main package.json)" >> $GITHUB_ENV
@@ -41,7 +41,7 @@ jobs:
         run: |
           git checkout -b "$BRANCH_NAME"
           git add package.json
-          git add yarn.lock
+          git add package-lock.json
           git commit -m "Update @devcycle/nodejs-server-sdk to latest"
           git push --set-upstream origin "$BRANCH_NAME"
 
