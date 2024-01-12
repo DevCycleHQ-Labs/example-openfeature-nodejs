@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+const readline = require('readline')
 
 const { getDevCycleClient } = require('../devcycle')
 const togglebot = require('../assets/togglebot')
@@ -52,7 +53,7 @@ const logTogglebot = () => {
  */
 const addPadding = (text) => {
   const rows = text.split('\n')
-  while (rows.length < SIZE) {
+  while (rows.length <= SIZE) {
     rows.length % 2 ? rows.push('') : rows.unshift('')
   }
 
@@ -87,10 +88,8 @@ const writeToConsole = (text, color = 'blue') => {
  * Clear content from lines where next frame will be written
  */
 const clearConsole = () => {
-  for (let i = 0; i < SIZE - 1; i++) {
-    process.stdout.moveCursor(0, -1)
-    process.stdout.clearLine()
-  }
+  readline.moveCursor(process.stdout, 0, -1 * SIZE)
+  readline.clearScreenDown(process.stdout)
 }
 
 

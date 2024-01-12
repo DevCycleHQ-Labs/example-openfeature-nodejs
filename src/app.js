@@ -50,9 +50,7 @@ async function run() {
      * Log togglebot to the console using the togglebot-spin and togglebot-wink
      * variables to control the output
      */
-    devcycleClient.onClientInitialized(() => {
-        logTogglebot()
-    })
+    logTogglebot()
 
     return app
 }
