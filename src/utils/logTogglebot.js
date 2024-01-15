@@ -2,8 +2,7 @@ const chalk = require('chalk')
 const readline = require('readline')
 
 const { getDevCycleClient } = require('../devcycle')
-const togglebot = require('../assets/togglebot')
-const togglebotWink = require('../assets/togglebotWink')
+const { togglebot, togglebotWink, togglebotOffAxis } = require('../assets')
 
 /**
  * Since this is used outside of a request context, we define a service user.
@@ -28,7 +27,8 @@ const logTogglebot = () => {
 
       writeToConsole(frame, color)
       setTimeout(() => {
-        const frames = wink ? togglebotWink : togglebot
+        let frames = wink ? togglebotWink : togglebot
+        if (speed === 'off-axis') frames = togglebotOffAxis
 
         let nextFrame
         if (speed === 'off') {
@@ -39,7 +39,7 @@ const logTogglebot = () => {
           nextFrame = frames[idx]
         }
 
-        const nextTimeout = ['fast', 'surprise'].includes(speed) ? 100 : 500
+        const nextTimeout = ['fast', 'surprise', 'off-axis'].includes(speed) ? 100 : 500
 
         clearConsole()
         renderFrame(nextFrame, nextTimeout)
