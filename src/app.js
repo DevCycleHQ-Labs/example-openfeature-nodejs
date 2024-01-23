@@ -3,7 +3,7 @@ const express = require('express')
 
 const { initializeDevCycle } = require('./devcycle')
 const greetingHandler = require('./routes/greeting')
-const { logTogglebot } = require('./utils/logTogglebot')
+const { logVariation } = require('./utils/logVariation')
 
 async function run() {
     const devcycleClient = await initializeDevCycle()
@@ -50,7 +50,7 @@ async function run() {
      * Log togglebot to the console using the togglebot-spin and togglebot-wink
      * variables to control the output
      */
-    logTogglebot()
+    logVariation()
 
     return app
 }

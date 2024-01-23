@@ -12,7 +12,6 @@
         "test": "jest"
     },
     "devDependencies": {
-        "chalk": "^4.1.0",
         "jest": "^29.7.0",
         "nodemon": "^3.0.2"
     }

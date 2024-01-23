@@ -3,7 +3,7 @@ const request = require('supertest')
 const DevCycle = require('./devcycle')
 
 jest.mock('./devcycle')
-jest.mock('./utils/logTogglebot')
+jest.mock('./utils/logVariation')
 
 describe('greeting', () => {
     let mockDevCycleClient = {
