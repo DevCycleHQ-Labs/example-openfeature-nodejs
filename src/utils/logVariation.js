@@ -70,7 +70,7 @@ const addColor = (text, color) => {
 const writeToConsole = (text, color = 'blue') => {
   text = addColor(text, color)
 
-  process.stdout.write('\r\x1b[K' + text)
+  process.stdout.write('\x1b[K  ' + text + '\r')
 }
 
 module.exports = {
