@@ -1,7 +1,8 @@
-const { getDevCycleClient } = require('../devcycle')
+const { getOpenFeatureClient } = require('../devcycle')
 
-module.exports = (req, res) => {
-    const step = getDevCycleClient().variableValue(req.user, 'example-text', 'default')
+module.exports = async (req, res) => {
+    const openFeatureClient = getOpenFeatureClient()
+    const step = await openFeatureClient.getStringValue('example-text', 'default', req.user)
     const { header, body } = greetings[step]
 
     res.set({ 'Content-Type': 'text/html' })

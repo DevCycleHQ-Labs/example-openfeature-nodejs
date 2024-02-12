@@ -1,10 +1,11 @@
+const { OpenFeature, Client } = require('@openfeature/server-sdk')
 const DevCycle = require('@devcycle/nodejs-server-sdk')
 const DEVCYCLE_SERVER_SDK_KEY = process.env.DEVCYCLE_SERVER_SDK_KEY
 
-let devcycleClient
+let devcycleClient, openFeatureClient
 
-async function initializeDevCycle() {
-    devcycleClient = await DevCycle.initializeDevCycle(
+async function initializeDevCycleWithOpenFeature() {
+    devcycleClient = DevCycle.initializeDevCycle(
         DEVCYCLE_SERVER_SDK_KEY,
         {
             logLevel: 'info',
@@ -13,15 +14,23 @@ async function initializeDevCycle() {
             // Controls the interval between flushing events to the DevCycle servers
             eventFlushIntervalMS: 1000
         },
-    ).onClientInitialized()
-    return devcycleClient
+    )
+    await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
+    openFeatureClient = OpenFeature.getClient()
+
+    return { devcycleClient, openFeatureClient }
 }
 
 function getDevCycleClient() {
     return devcycleClient
 }
 
+function getOpenFeatureClient() {
+    return openFeatureClient
+}
+
 module.exports = {
-    initializeDevCycle,
+    initializeDevCycle: initializeDevCycleWithOpenFeature,
     getDevCycleClient,
+    getOpenFeatureClient
 }

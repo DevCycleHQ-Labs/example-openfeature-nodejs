@@ -6,7 +6,7 @@ const greetingHandler = require('./routes/greeting')
 const { logVariation } = require('./utils/logVariation')
 
 async function run() {
-    const devcycleClient = await initializeDevCycle()
+    const { devcycleClient } = await initializeDevCycle()
 
     const app = express()
     app.use(express.urlencoded({ extended: false }))

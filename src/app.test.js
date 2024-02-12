@@ -5,21 +5,29 @@ const DevCycle = require('./devcycle')
 jest.mock('./devcycle')
 jest.mock('./utils/logVariation')
 
-describe('greeting', () => {
-    let mockDevCycleClient = {
-        onClientInitialized: jest.fn(),
-        variableValue: jest.fn(),
-    }
+let mockDevCycleClient = {
+    onClientInitialized: jest.fn(),
+    variableValue: jest.fn(),
+};
 
-    const mockVariableValue = (variable, value) => {
-        mockDevCycleClient.variableValue = jest.fn()
-        mockDevCycleClient.variableValue.mockImplementation((user, variableName, defaultValue) => (
-            variableName === variable ? value : defaultValue
-        ))
+let mockOpenFeatureClient = {
+    getBooleanValue: jest.fn(),
+    getStringValue: jest.fn(),
+};
+
+describe('greeting', () => {
+    const mockVariableValue = (key, value, type) => {
+        mockOpenFeatureClient.getStringValue.mockImplementation(async (variableKey, defaultValue) => {
+            return (type === 'String' && variableKey === key) ? value : defaultValue
+        })
     }
 
     beforeEach(() => {
-        DevCycle.initializeDevCycle.mockReturnValue(mockDevCycleClient)
+        DevCycle.initializeDevCycle.mockReturnValue({
+            devcycleClient: mockDevCycleClient,
+            openFeatureClient: mockOpenFeatureClient
+        })
+        DevCycle.getOpenFeatureClient.mockReturnValue(mockOpenFeatureClient)
         DevCycle.getDevCycleClient.mockReturnValue(mockDevCycleClient)
     })
 
@@ -29,7 +37,7 @@ describe('greeting', () => {
         'step-2',
         'step-3'
     ])('returns greeting for variable value "%s"', async (value) => {
-        mockVariableValue('example-text', value)
+        mockVariableValue('example-text', value, 'String')
 
         const app = await run()
 
