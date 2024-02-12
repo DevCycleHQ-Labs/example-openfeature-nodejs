@@ -27,7 +27,7 @@ jobs:
         run: echo "BRANCH_NAME=update-dvc-sdk" >> $GITHUB_ENV
 
       - name: Update @devcycle/nodejs-server-sdk to latest
-        run: npm install @devcycle/nodejs-server-sdk@latest
+        run: npm install @devcycle/nodejs-server-sdk@latest @openfeature/server-sdk@latest @openfeature/core@latest
 
       - name: Check for changes to package.json
         run: echo "IS_UPDATED=$(git diff --name-only origin/main package.json)" >> $GITHUB_ENV
