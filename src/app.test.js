@@ -5,7 +5,7 @@ const DevCycle = require('./devcycle')
 jest.mock('./devcycle')
 jest.mock('./utils/logVariation')
 
-let mockDevCycleClient = {
+let mockDevCycleProvider = {
     onClientInitialized: jest.fn(),
     variableValue: jest.fn(),
 };
@@ -24,11 +24,11 @@ describe('greeting', () => {
 
     beforeEach(() => {
         DevCycle.initializeDevCycle.mockReturnValue({
-            devcycleClient: mockDevCycleClient,
+            devcycleProvider: mockDevCycleProvider,
             openFeatureClient: mockOpenFeatureClient
         })
         DevCycle.getOpenFeatureClient.mockReturnValue(mockOpenFeatureClient)
-        DevCycle.getDevCycleClient.mockReturnValue(mockDevCycleClient)
+        DevCycle.getDevCycleProvider.mockReturnValue(mockDevCycleProvider)
     })
 
     test.each([

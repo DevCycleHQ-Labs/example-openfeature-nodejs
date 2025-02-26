@@ -6,7 +6,7 @@ const greetingHandler = require('./routes/greeting')
 const { logVariation } = require('./utils/logVariation')
 
 async function run() {
-    const { devcycleClient } = await initializeDevCycle()
+    const { devcycleProvider } = await initializeDevCycle()
 
     const app = express()
     app.use(express.urlencoded({ extended: false }))
@@ -42,7 +42,7 @@ async function run() {
      * Return all variable values for debugging purposes
      */
     app.get('/variables', (req, res) => {
-        const variables = devcycleClient.allVariables(req.user)
+        const variables = devcycleProvider.devcycleClient.allVariables(req.user)
         res.json(variables)
     })
 

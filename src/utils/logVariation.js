@@ -1,4 +1,4 @@
-const { getDevCycleClient, getOpenFeatureClient } = require('../devcycle')
+const { getDevCycleProvider, getOpenFeatureClient } = require('../devcycle')
 
 /**
  * Since this is used outside of a request context, we define a service user.
@@ -11,12 +11,12 @@ const SERVICE_USER = { user_id: 'api-service' }
  * Log togglebot to the console overwriting the previous frame
  */
 const logVariation = () => {
-    const devcycleClient = getDevCycleClient()
+    const devcycleProvider = getDevCycleProvider()
     const openFeatureClient = getOpenFeatureClient()
 
     let idx = 0
     const renderFrame = async () => {
-      const features = devcycleClient.allFeatures(SERVICE_USER)
+      const features = devcycleProvider.devcycleClient.allFeatures(SERVICE_USER)
       const { variationName = 'Default' } = features['hello-togglebot'] ?? {}
 
       const wink = await openFeatureClient.getBooleanValue('togglebot-wink', false, SERVICE_USER)
